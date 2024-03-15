@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './index.css'
+
+const targetDate = new Date('March 15, 2024 17:00:00'); // 5 PM on March 15th
+
 const Timer = () => {
   const [currentTime, setCurrentTime] = useState('24:00:00');
-  const targetDate = new Date('March 15, 2024 17:00:00'); // 5 PM on March 15th
 
   useEffect(() => {
     const updateTimer = () => {
@@ -28,7 +30,7 @@ const Timer = () => {
     const intervalId = setInterval(updateTimer, 1000); // Update every second
 
     return () => clearInterval(intervalId);
-  }, []);
+  }, []); // targetDate is included in the dependency array
 
   return (
     <div className="timer-container">
