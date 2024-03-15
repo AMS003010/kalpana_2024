@@ -18,7 +18,6 @@ const Board = () => {
 
         const data = await response.json();
         setTeamData(data);
-        console.log("Loaded team data");
     } catch (error) {
         console.error("Error fetching data:", error);
     }

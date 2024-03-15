@@ -33,26 +33,26 @@ const QuestionPage = ({totalPoints,setTotalPoints}) => {
   
     useEffect(() => {
         const targetFirstStart = new Date(currentTime);
-        const month = 3//targetFirstStart.getMonth() + 1;
-        const day = 15//targetFirstStart.getDate();
-        targetFirstStart.setHours(15,5, 0, 0);
+        const month = targetFirstStart.getMonth() + 1;
+        const day = targetFirstStart.getDate();
+        targetFirstStart.setHours(10,0, 0, 0);
         const targetFirstEnd = new Date(currentTime);
-        targetFirstEnd.setHours(15, 7, 0, 0);
+        targetFirstEnd.setHours(10, 40, 0, 0);
     
         const targetSecondStart = new Date(currentTime);
-        targetSecondStart.setHours(15, 8, 0, 0);
+        targetSecondStart.setHours(10, 45, 0, 0);
         const targetSecondEnd = new Date(currentTime);
-        targetSecondEnd.setHours(15, 10, 0, 0);
+        targetSecondEnd.setHours(11, 25, 0, 0);
     
         const targetThirdStart = new Date(currentTime);
-        targetThirdStart.setHours(15, 11, 0, 0);
+        targetThirdStart.setHours(5, 0, 0, 0);
         const targetThirdEnd = new Date(currentTime);
-        targetThirdEnd.setHours(15, 13, 0, 0);
+        targetThirdEnd.setHours(5, 40, 0, 0);
 
         const targetFourthStart = new Date(currentTime);
-        targetFourthStart.setHours(15, 14, 0, 0);
+        targetFourthStart.setHours(5, 45, 0, 0);
         const targetFourthEnd = new Date(currentTime);
-        targetFourthEnd.setHours(15, 17, 0, 0);
+        targetFourthEnd.setHours(6, 25, 0, 0);
         if (month === 3 && day === 15 && currentTime < targetFirstStart) {
             setCurrentComponent('Waiting')
         }
@@ -62,15 +62,16 @@ const QuestionPage = ({totalPoints,setTotalPoints}) => {
             setCurrentComponent('FreeTime');
         } else if (month === 3 && day === 15 && (currentTime >= targetSecondStart && currentTime < targetSecondEnd)) {
             setCurrentComponent('Second');
-        } else if (month === 3 && day === 15 && (currentTime >= targetSecondEnd && currentTime < targetThirdStart)) {
-            setCurrentComponent('FreeTime');
-        } else if (month === 3 && day === 15 && (currentTime >= targetThirdStart && currentTime < targetThirdEnd)) {
-            setCurrentComponent('Third');
-        } else if (month === 3 && day === 15 && (currentTime >= targetThirdEnd && currentTime < targetFourthStart)) {
-            setCurrentComponent('FreeTime');
-        } else if (month === 3 && day === 15 && (currentTime >= targetFourthStart && currentTime < targetFourthEnd)) {
-            setCurrentComponent('Fourth');
-        } else if (month === 3 && day === 15 && (currentTime >= targetFourthEnd) ) {
+        } else if (month === 3 && day === 16 && (currentTime >= targetThirdStart && currentTime < targetThirdEnd)) {
+          setCurrentComponent('Third');
+      } else if (month === 3 && day === 16 && (currentTime >= targetThirdEnd && currentTime < targetFourthStart)) {
+          setCurrentComponent('FreeTime');
+      } else if (month === 3 && day === 16 && (currentTime >= targetFourthStart && currentTime < targetFourthEnd)) {
+          setCurrentComponent('Fourth');
+      }else if ((currentTime >= targetSecondEnd && currentTime < targetThirdStart)) {
+            setCurrentComponent('FreeTime');  
+        } 
+        else if (month === 3 && day === 16 && (currentTime >= targetFourthEnd) ) {
             setCurrentComponent('Ended');
         }
         else {

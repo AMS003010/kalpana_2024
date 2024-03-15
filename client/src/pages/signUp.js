@@ -21,7 +21,6 @@ const SignUp = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("handleSubmit : "+teamName+"   "+memEmail);
         await login(teamName,memEmail);
     }
 

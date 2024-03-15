@@ -156,7 +156,6 @@ const Question = ({ color, title, points, attempts, solved, index, questype, tot
             });
             const jsonmsg = await response.json();
             setMsg(jsonmsg);
-            console.log(jsonmsg);
             if (!response.ok) {
                 console.log("Submission failed");
             }

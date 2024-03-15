@@ -61,7 +61,6 @@ const teamSchema = new Schema({
 });
 
 const validate = (team) => {
-    console.log("validate team")
     const schema = joi.object({
         team_name: joi.string().min(3).max(20).required(),
         mem1_email: joi.string().email().required(),

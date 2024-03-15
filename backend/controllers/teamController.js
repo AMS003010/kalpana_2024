@@ -67,22 +67,13 @@ const checkAnswer = async (req,res) => {
     const ans = req.body.answer;
     const type = req.body.type;
     const index = parseInt(req.body.index, 10);
-    console.log(team);
-    console.log(points,typeof(points));
-    console.log(ans,typeof(ans));
-    console.log(type,typeof(type));
-    console.log(index,typeof(index));
     if (type=='easy') {
-        console.log("easy");
         const _attempts = team.easyAttempt[index];
         const attempts = parseInt(_attempts,10);
-        console.log(attempts,typeof(attempts));
         if (attempts < 3) {
             let msg = "wrong answer";
             let return_points = 0;
-            console.log()
             const actual_ans = easy_ans[index];
-            console.log("actual "+actual_ans);
             if(actual_ans == ans){
                 if(team.easyques[index] == '0'){
                     let old_points = parseInt(team.points,10);
@@ -109,13 +100,9 @@ const checkAnswer = async (req,res) => {
         if (attempts < 3) {
             let msg = "wrong answer";
             let return_points = 0;
-            console.log()
             const actual_ans = med_ans[index];
-            console.log("actual "+actual_ans);
             if(actual_ans == ans){
-                console.log("hi");
                 if(team.medques[index] == '0'){
-                    console.log("hello");
                     let old_points = parseInt(team.points,10);
                     let new_points = old_points+points;
                     new_points = new_points.toString();
@@ -141,7 +128,6 @@ const checkAnswer = async (req,res) => {
             let msg = "wrong answer";
             let return_points = 0;
             const actual_ans = hard_ans[index];
-            console.log("actual "+actual_ans);
             if(actual_ans == ans){
                 if(team.hardques[index] == '0'){
                     let old_points = parseInt(team.points,10);
